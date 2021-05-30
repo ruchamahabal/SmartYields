@@ -1,0 +1,44 @@
+html,
+body {
+	font-size: 100%;
+	font-family: 'Thasadith', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hero-image {
+	height: 100vh;
+	width: 100vw;
+	position: relative;
+	background-size: cover;
+	background-position: 30% 30%;
+	background-image: url(../images/smart-yields.jpg)
+}
+
+.image-overlay {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.75);
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.app-name {
+	font-size: 4rem;
+	font-weight: 600;
+	letter-spacing: 10px;
+}
+
+.subtitle {
+	letter-spacing: 5px;
+	line-height: 35px;
+	text-transform: capitalize;
+}
