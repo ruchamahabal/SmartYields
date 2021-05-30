@@ -1,2 +1,2 @@
-# SmartYields :seedling:	:ear_of_rice:	:herb:	
+# SmartYields :seedling:	
 A Crop Recommendation, Crop Disease Detection Web App using Machine Learning
