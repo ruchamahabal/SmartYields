@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
+
+	<!-- google fonts css -->
+	<link href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet">
+	
+	<!-- custom css -->
+	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+		<title>Crop Recommendation</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="container collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="{{ url_for('home') }}">Home<span class="sr-only"></span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('recommend_crops') }}">Crop Recommendation</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('predict_disease') }}">Crop Disease Detection</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<script type="text/JavaScript" src="{{ url_for('static', filename='scripts/cities.js') }}"></script>
+
+		<div class="container mt-3 mb-3">
+			<div class="row justify-content-center">
+				<div class="card col-lg-6 col-md-6 shadow-sm bg-white rounded m-5 p-5">
+					<div class="col">
+						<form method="POST" action="{{ url_for('crop_recommendation_result') }}">
+							<div class="form-group">
+								<label for="nitrogen">Nitrogen</label>
+								<input id="nitrogen" name="nitrogen" class="form-control" type="number"
+								placeholder="Enter value in kg/hectare (example:50)" maxlength="40"
+								required>
+							</div>
+
+							<div class="form-group">
+								<label for="potassium">Potassium</label>
+								<input id="potassium" name="potassium" class="form-control" type="number"
+								placeholder="Enter value in kg/hectare (example:70)" maxlength="40"
+								required>
+							</div>
+
+							<div class="form-group">
+								<label for="phosphorous">Phosphorous</label>
+								<input id="phosphorous" name="phosphorous" class="form-control" type="number"
+								placeholder="Enter value in kg/hectare (example:90)" maxlength="40"
+								required>
+							</div>
+
+							<div class="form-group">
+								<label for="ph">Soil pH Level</label>
+								<input id="ph" name="ph" class="form-control" type="number" step="0.01"
+								placeholder="Enter the soil pH value" maxlength="40" required>
+							</div>
+
+							<div class="form-group">
+								<label for="rainfall">Rainfall</label>
+								<input id="rainfall" name="rainfall" class="form-control" type="number" step="0.01" placeholder="Rainfall (in cm)" maxlength="40">
+							</div>
+	
+							<div class="form-group">
+								<label for="state">State</label>
+								<select
+								  onchange="set_cities('city', this.selectedIndex);"
+								  id="state" name="state" class="form-control" required>
+								</select>
+							</div>
+
+							<div class="form-group">
+								<label for="city">City</label>
+								<select id="city" class="form-control" name="city" required>
+								</select>
+
+								<script language="javascript">
+								  set_states("state");
+								</script>
+							</div>
+
+							<div class="d-flex justify-content-center">
+								<button type="submit" id="btn-submit" class="btn btn-success">Predict</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	</body>
+</html>
