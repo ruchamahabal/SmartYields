@@ -73,27 +73,28 @@ crop_recommendation_model = pickle.load(open(crop_recommendation_model_path, 'rb
 ''' Custom functions for calculations '''
 
 def fetch_weather(city_name):
-    """
-    Fetches and returns the temperature and humidity of a city
-    :params: city_name
-    :return: temperature, humidity
-    """
-    api_key = config.weather_api_key
-    base_url = "http://api.openweathermap.org/data/2.5/weather?"
+	"""
+	Fetches and returns the temperature and humidity of a city
+	:params: city_name
+	:return: temperature, humidity
+	"""
+	api_key = config.weather_api_key
+	base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
-    complete_url = base_url + "appid=" + api_key + "&q=" + city_name
-    response = requests.get(complete_url)
-    x = response.json()
+	requests.packages.urllib3.disable_warnings()
+	complete_url = base_url + "appid=" + api_key + "&q=" + city_name
+	response = requests.get(complete_url, verify=False)
+	x = response.json()
 
-    if x["cod"] != "404":
-        y = x["main"]
+	if x["cod"] != "404":
+		y = x["main"]
 		# by default open weather map returns temperature in kelvin
 		# convert it to degree celcius
-        temperature = round((y["temp"] - 273.15), 2)
-        humidity = y["humidity"]
-        return temperature, humidity
-    else:
-        return None
+		temperature = round((y["temp"] - 273.15), 2)
+		humidity = y["humidity"]
+		return temperature, humidity
+	else:
+		return None
 
 
 def predict_disease_from_image(img, model=disease_model):
@@ -135,7 +136,7 @@ def recommend_crops():
 @ app.route('/crop_recommendation_result', methods=['POST'])
 def crop_recommendation_result():
 	title = 'SmartYields - Crop Recommendation'
-	
+
 	if request.method == 'POST':
 		N = int(request.form['nitrogen'])
 		P = int(request.form['phosphorous'])
