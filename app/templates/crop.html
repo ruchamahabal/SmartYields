@@ -11,7 +11,7 @@
 
 	<!-- google fonts css -->
 	<link href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet">
-	
+
 	<!-- custom css -->
 	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 
@@ -37,7 +37,7 @@
 				</ul>
 			</div>
 		</nav>
-		
+
 		<script type="text/JavaScript" src="{{ url_for('static', filename='scripts/cities.js') }}"></script>
 
 		<div class="container mt-3 mb-3">
@@ -76,7 +76,7 @@
 								<label for="rainfall">Rainfall</label>
 								<input id="rainfall" name="rainfall" class="form-control" type="number" step="0.01" placeholder="Rainfall (in cm)" maxlength="40">
 							</div>
-	
+
 							<div class="form-group">
 								<label for="state">State</label>
 								<select
@@ -91,7 +91,10 @@
 								</select>
 
 								<script language="javascript">
-								  set_states("state");
+									set_states("state");
+									let selected_state = document.getElementById("state").selectedIndex;
+									if (selected_state != -1)
+										set_cities("city", selected_state);
 								</script>
 							</div>
 
