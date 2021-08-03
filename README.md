@@ -1,5 +1,5 @@
 # SmartYields :seedling:	
-A Crop Recommendation, Crop Disease Detection Web App using Machine Learning
+A Crop Recommendation and Crop Disease Detection Web App using Machine Learning
 
 ## Models Used:
 
