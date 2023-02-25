@@ -14,19 +14,31 @@ Crop Recommendation based on factors:
 
 ## Screenshots
 
-### Diseased crop image
+### Disease Detection
+
+#### Diseased crop image
 
 ![image36](https://user-images.githubusercontent.com/24353136/221272675-dd5a90b7-fff5-4088-911b-7636e83714c7.png)
 
-### Result
+#### Result
 
 ![image73](https://user-images.githubusercontent.com/24353136/221272755-194f63a8-1eda-44e1-9545-be069c8d7cba.png)
 
-### Healthy crop image
+#### Healthy crop image
 
 ![image132](https://user-images.githubusercontent.com/24353136/221272855-cbd29a17-24f3-4020-8fbf-6d94b44119c4.png)
 
-### Result
+#### Result
+
+![image5](https://user-images.githubusercontent.com/24353136/221364984-fa632b69-c6cc-42b0-bb0f-052e92c3715f.png)
+
+### Crop Recommendation
+
+#### Inputs
+
+![image98](https://user-images.githubusercontent.com/24353136/221365050-cc2618fa-8f8f-4250-9ad4-aa23317dcb32.png)
+
+#### Result
 
 ![image135](https://user-images.githubusercontent.com/24353136/221272832-6c395dee-e1fc-4dbc-ab71-c217f3eb36cf.png)
 
