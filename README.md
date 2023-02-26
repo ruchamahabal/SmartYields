@@ -49,11 +49,11 @@ Crop Recommendation based on factors:
 
 ## Modeling
 
-**Crop Recommendation**
+**Disease Detection**
 
 ![image61](https://user-images.githubusercontent.com/24353136/221276479-a1cbb780-b189-4889-b696-144a71ae3ece.png)
 
-**Disease Detection**
+**Crop Recommendation**
 
 ![image113](https://user-images.githubusercontent.com/24353136/221276874-f5f8fc99-2e7d-455e-9c71-367dd273f25a.png)
 
